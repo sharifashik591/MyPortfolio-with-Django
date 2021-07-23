@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block body%}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<!-- <Script src="{% static 'js/home.js' %}"></Script> -->
+<!--About-->
+<div class="container-sm" style="padding-top: 10px;">
+    <div class=" jumbotron container " id="about">
+        <div class="row justify-content-center">
+            <div class="col col-7" id="about_description">
+                <h1 class="font-monospace" id="about_name">About</h1>
+                <p>
+                    Hello! I am sharif Ashik Ishtiak. Data Analyst, Data Scientist,Web Developer and IT specialist.<br>
+                </p>
+                <p class="fst-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis delectus deleniti dolor doloremque eligendi, est fugit illum inventore ipsam neque nobis, numquam quas quibusdam sit temporibus totam vel vero.</p>
+    
+                <button class="btn btn-secondary btn-sm pull-right" type="button" data-bs-toggle="collapse" data-bs-target="#about_learn_more" aria-expanded="false" aria-controls="collapseExample">
+                    Learn More
+                </button>
+    
+            </div>
+            <div class="col col-md-5" id="about_info">
+                <h1 class="font-monospace">Basic Information</h1>
+                {% if basic_info %}
+                
+                <p class="fst-italic">
+                    <strong>AGE: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{basic_info.age}}</strong><br>
+                    <strong>EMAIL: &emsp;&emsp;&emsp;&emsp;&emsp;{{basic_info.email}}</strong><br>
+                    <strong>PHONE: &emsp;&emsp;&emsp;&emsp;{{basic_info.phone}}</strong><br>
+                    <strong>ADDRESS: &emsp;&emsp;&emsp;{{basic_info.address}}</strong><br>
+                    <strong>LANGUAGE: &emsp;&emsp;{{basic_info.language}}</strong>
+    
+                </p>
+    
+                {% else %}
+                <p class="fst-italic">
+                    <strong>AGE: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;23</strong><br>
+                    <strong>EMAIL: &emsp;&emsp;&emsp;&emsp;&emsp;sharifashik591@gmail.com</strong><br>
+                    <strong>PHONE: &emsp;&emsp;&emsp;&emsp;+8801944896737</strong><br>
+                    <strong>ADDRESS: &emsp;&emsp;&emsp;75/11 Lohagora, Narail</strong><br>
+                    <strong>LANGUAGE: &emsp;&emsp;Bangla & English</strong>
+    
+                </p>
+    
+                {% endif %}
+    
+            </div>
+        </div>
+    
+    </div>
+</div>
+<br><br>
+
+<div class="container">
+    {% include 'home/certificate_slide.html' with c_info=c_info %}
+</div>
+
+
+
+
+
+
+<Script src="{% static 'js/home.js' %}"></Script>
+
+{% endblock%}
+

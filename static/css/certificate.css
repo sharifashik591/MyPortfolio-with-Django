@@ -1,0 +1,25 @@
+.container{
+    background-color:white;
+}
+.c_image{
+    padding-left: 10%;
+    padding-right: 10%;
+    display: block;
+    
+   
+}
+
+
+    #heading1:hover{
+        background-color: #5d7273;
+        color: white;
+        opacity: 1;
+
+    }
+
+    #heading1{
+        border-bottom:2px double red;
+        border-top-color: white;
+        /* font-family: monospace; */
+        
+    }

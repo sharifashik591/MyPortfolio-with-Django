@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load static %}
+<title>{% block title %} Project/Machine Learning {% endblock title%}</title>
+{% block body%}
+
+<div class="text-center" style="padding: 20;">
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <a href="{% url 'data_analysis' %}" class="btn btn-outline-primary " >Data Analysis</a>
+        <a href="{% url 'MachineLearning' %}" class="btn btn-outline-primary active" >Machine Learning</a>
+        <a href="{% url 'DeepLearning' %}" class="btn btn-outline-primary " >Deep Learning</a>
+        <a href="{% url 'WebDevelopment' %}" class="btn btn-outline-primary" >Web Development</a>
+    </div>
+</div>
+
+
+{% for i in object %}
+<div class="container" id="list">
+    <div class="jumbotron">
+        <div class="row text-center" id="project_list" >
+            <div class="col-sm-4 text-end">
+                <a href="{{i.project_url}}"><img class="rounded-3" src="{{i.project_pic.url}}" alt="" height="200px" width="200px"></a>
+            </div>
+            <div class="col-8 text-start">
+                <h5>{{i.project_name}}</h5>
+                <p>{{i.project_description}}
+                    <br><a href="{{i.project_url}}"><button type="button" class="btn btn-link btn-sm">Learn More</button></a>
+                </p>
+
+            </div>
+        </div>
+    </div><hr>
+</div><br>
+{% endfor %}
+
+{% endblock%}

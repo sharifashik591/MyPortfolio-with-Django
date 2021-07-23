@@ -1,0 +1,82 @@
+{% load static %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href=" {% static 'css/certificate.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="shadow-lg  mb-5 bg-body rounded">
+  <h1 class="font-monospace" id="heading1"><strong>Certificate</strong></h1>
+</div>
+<!-- Slider -->
+<div class="container">
+  
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class=" c_image">
+    <div class="carousel-inner">
+      {% for info in c_info %}
+                  
+          <div class="carousel-item {% if forloop.first %} active {% endif %}">
+            
+            <img src="{{ info.c_image.url }}" class="d-block " alt="Image 1" height="600px" width="100%" >
+            
+            <div class="carousel-caption">
+              <!-- <div class="carousel-caption d-none d-md-block"> -->
+                <h5 class="fs-2 fw-light fst-italic font-monospace" style="color:darkgreen;">{{ info.title }}</h5>
+                <p>{{ info.description }}</p>
+            </div>
+          
+          </div>
+          {% endfor %}
+    </div>
+<!-- Control -->
+    <div class="control">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script>
+    var btn=document.getElementById('heading1');
+    btn.addEventListener('mouseenter',function(){
+    // alert('This is about');
+    this.style.textAlign='center';
+    this.style.fontSize='60'
+    // this.style.transition="all 1s"
+ 
+    });
+
+    btn.addEventListener('mouseout',function(){
+    // alert('This is about');
+    this.style.textAlign='center';
+    this.style.fontSize='40'
+    // this.style.transition="all 1s"
+ 
+    });
+
+  </script>

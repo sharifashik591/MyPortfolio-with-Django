@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block body%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} Contact {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+
+
+
+<h3 class="text-center fw-bold" style="margin-top:20px">Contract</h3>
+{% if user_name %}
+<center>
+    <h4>Thanks {{user_name}}</h4>
+    <p>I will response soon</p>
+</center>
+{% else %}
+
+<form method="post" action="">
+    {% csrf_token %}
+<div class="container" id="contact_form">
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name" name="name">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput2" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com" name="email">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <input type="Submit" class="btn btn-primary" value="Submit Button">
+    </div>
+
+</div>
+</form>
+
+{% endif %}
+
+<div class="container">
+    <h3 class="text-center fw-bold map" >My Location</h3>
+    <div class="">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6534.667339066156!2d89.65115056279822!3d23.18997595520718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ffb0aad0301c5b%3A0xf1587cfa2cbe33cb!2sLohagara%20Upazila!5e0!3m2!1sen!2sbd!4v1622843103904!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+<br><br><br>
+
+
+</body>
+</html>
+
+{% endblock %}

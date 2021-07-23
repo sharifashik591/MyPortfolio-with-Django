@@ -1,0 +1,117 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block body%}
+
+<!-- <link rel="stylesheet" href="{% static 'css/progress-bar.css' %}"> -->
+
+<!-- {% for i in skill_obj %}
+    <h1>{{i.title}}</h1>
+{% endfor %} -->
+
+<style>
+
+    .bar_title{
+        margin-left: 200px;
+        text-align: justify;
+    }
+
+    .progress-bar {
+        width: 500px;
+        margin: 1.5rem auto;
+        margin-top: 5px;
+        background-color: #ddd;
+        border-radius: 6px;
+        height: 24px;
+        
+    }
+    .progress {
+        width: 0;
+        border-radius: 6px;
+        height: 24px;
+        text-align: right;
+        position: relative;
+    }
+    .progress span {
+        font-size: 14px;
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        color: white;
+    
+    }
+
+    .col h2{
+        padding: 30px;
+        padding-bottom: 10px;
+        font-size: 50px;
+        border-bottom: 5px double red;
+        
+    }
+    .skil_info{
+        padding-top: 20px;
+    }
+    
+</style>
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col col-sm-6">
+            <h2 class="text-center fa-bold">Hard Skills</h2>
+            
+            <div class="skil_info shadow p-3 bg-body rounded">
+                {% for i in skill_obj %}
+                <div class="bar_title">
+                    <h4 class="fst-italic text-info ">{{i.title}}</h4>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" 
+                        data-percent="{{i.parcent}}" 
+                        data-color="green">
+                        <span>{{i.parcent}}%</span>
+                    </div>
+                </div> 
+                         
+            
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col col-sm-6">
+        <h2 class="text-center fa-bold">Prsonal Skills</h2>
+        <div class="skil_info shadow p-3 bg-body rounded">
+            {% for i in personal_obj %}
+        <div class="bar_title">
+            <h4 class=" fst-italic text-info ">{{i.title}}</h4>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" 
+                data-percent="{{i.parcent}}" 
+                data-color="green">
+                <span>{{i.parcent}}%</span>
+            </div>
+        </div>              
+        
+        {% endfor %}
+        </div>
+    </div>
+    </div>
+</div>
+<br><br>
+<a class="btn btn-dark" href="{% url 'home' %}" style="margin: 20px;">Back</a>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'js/progress-bar.js' %}"></script>
+<script>
+    $(document).ready(function(){
+        $(".progress-bar").ProgressBar();
+      });
+</script>
+
+
+
+
+{% endblock%}
+
